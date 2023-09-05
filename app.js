@@ -1,6 +1,4 @@
-const MONGODB_URI = "mongodb+srv://leeisaacy:12341234@cluster0.towkkvb.mongodb.net/blogApp?retryWrites=true&w=majority"
-const PORT = 3003
-
+const config = require('./utils/config')
 const express = require('express')
 const app = express()
 const cors = require('cors')
@@ -14,9 +12,9 @@ const mongoose = require('mongoose')
 
 mongoose.set('strictQuery', false)
 
-logger.info('connecting to', MONGODB_URI)
+logger.info('connecting to', config.MONGODB_URI)
 
-mongoose.connect(MONGODB_URI)
+mongoose.connect(config.MONGODB_URI)
   .then(() => {
     logger.info('connected to MongoDB')
   })
